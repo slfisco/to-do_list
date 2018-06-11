@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><TaskList>
 	
 	
-<Task id="3"><Name>Do dishes</Name><Status>Complete</Status></Task><Task id="5"><Name>Another task</Name><Status>Complete</Status></Task><Task id="6"><Name>Do homework</Name><Status>Complete</Status></Task></TaskList>
+<Task id="3"><Name>Do dishes</Name><Status>Complete</Status></Task><Task id="5"><Name>Another task</Name><Status>Complete</Status></Task><Task id="6"><Name>Formatting</Name><Status>Not Complete</Status></Task><Task id="7"><Name>test task</Name><Status>Complete</Status></Task></TaskList>

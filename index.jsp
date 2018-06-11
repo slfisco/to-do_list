@@ -4,7 +4,7 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>To-Do List App</title>
-   <link href="${pageContext.request.contextPath}/layout.css" rel="stylesheet" type="text/css">
+   <link href="${pageContext.request.contextPath}//layout.css" rel="stylesheet" type="text/css">
 </head>
    
 <body>
@@ -37,14 +37,19 @@ for (int i = 0; i<taskNodeList.getLength(); i++) { //cycle through task nodes
 			if (textnode.getNodeName() == "Name") {
 %>				
 <%-- display Task Number (not equal to ID) and task name --%>
-				<p><%= i+1%>) <%= textnode.getTextContent()%>
-				<br>
+				<p><div id="task"><%= i+1%>) <%= textnode.getTextContent()%></div>
 <%				
 			} 
 			else if (textnode.getNodeName() == "Status") {
 %> 
 <%-- display status, change status and remove task buttons --%>
-					Status: <%= textnode.getTextContent()%>
+					Status: <% if (textnode.getTextContent().equals("Complete")) {
+								%> <font color="LimeGreen"><%= textnode.getTextContent()%></font>
+					<% } 
+					else { 
+								%> <font color="red"><%= textnode.getTextContent()%></font>
+<% 								} 
+%>					<br>
 					<form action="markTask" method="GET">
 						<button type="submit">Change Status</button>
 						<input type="hidden" name="id" value= "<%= taskID %>">
@@ -61,11 +66,10 @@ for (int i = 0; i<taskNodeList.getLength(); i++) { //cycle through task nodes
 } //end XML entries %>
 </p>
 <%-- display add task field and button --%>
-<p>
+Enter new task here:
 	<form action="addTask" method="GET">
 		<input type="text" name="name" required="required">
 		<button type="submit">Add Task</button>
 	</form>
-</p>
 </body>
 </html>

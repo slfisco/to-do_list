@@ -50,13 +50,15 @@ for (int i = 0; i<taskNodeList.getLength(); i++) { //cycle through task nodes
 								%> <font color="red"><%= textnode.getTextContent()%></font>
 <% 								} 
 %>					<br>
-					<form action="markTask" method="GET">
+					<form action="processTask" method="GET">
 						<button type="submit">Change Status</button>
 						<input type="hidden" name="id" value= "<%= taskID %>">
+						<input type="hidden" name="method" value= "mark">
 					</form>
-					<form action="removeTask" method="GET">
+					<form action="processTask" method="GET">
 						<button type="submit">Remove Task</button>
 						<input type="hidden" name="id" value= "<%= taskID %>">
+						<input type="hidden" name="method" value= "remove">
 					</form>
 				</p>
 				<br>
@@ -67,9 +69,10 @@ for (int i = 0; i<taskNodeList.getLength(); i++) { //cycle through task nodes
 </p>
 <%-- display add task field and button --%>
 Enter new task here:
-	<form action="addTask" method="GET">
+	<form action="processTask" method="GET">
 		<input type="text" name="name" required="required">
 		<button type="submit">Add Task</button>
+		<input type="hidden" name="method" value= "add">
 	</form>
 </body>
 </html>

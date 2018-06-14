@@ -1,5 +1,9 @@
-// addTask servlet
-// creates new xml task node with name of name parameter and status of "Not Complete". Updates xml and refreshes jsp.
+///// processTask servlet
+// carries out XML processes based on jsp form submission
+// doGet(main) creates XML DOM, runs method, saves XML and refreshes jsp
+// addTask method: adds new task node based on name submitted by jsp
+// markTask method: changes a task's status from "Complete" to "Not Complete" or from "Not Complete" to "Complete"
+// removeTask method: removes a task node based on id submitted by jsp
 import java.io.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -32,6 +36,7 @@ public class processTask extends HttpServlet {
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document document = db.parse(xmlFile);
 			NodeList taskNodeList = document.getElementsByTagName("Task");
+			// trigger XML related functions based on method parameter
 			if (method.equals("remove")) {
 				taskNodeList = removeTask(taskNodeList, identifier);
 			}
@@ -52,6 +57,7 @@ public class processTask extends HttpServlet {
 			}	catch(Exception exc) {
 			}
 	}
+	// adds new task node to XML
 	public NodeList addTask(NodeList taskNodeList, String taskName, Document document)
 	{
 	String newID = "";
@@ -78,6 +84,7 @@ public class processTask extends HttpServlet {
 		newStatusNode.appendChild(newStatusText);
 		return taskNodeList;
 	}
+	// changes status text of a task in XML
 	public NodeList markTask(NodeList taskNodeList, String identifier)
 	{
 		for (int i =0; i<taskNodeList.getLength(); i++) {
@@ -101,6 +108,7 @@ public class processTask extends HttpServlet {
 		}
 		return taskNodeList;
 	}
+	// removes a task node from XML
 	public NodeList removeTask(NodeList taskNodeList, String identifier)
 	{
 		for (int i =0; i<taskNodeList.getLength(); i++) {

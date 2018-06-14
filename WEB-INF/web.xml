@@ -5,36 +5,13 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
  
    <servlet>
-      <servlet-name>markTask</servlet-name>
-	  <servlet-class>markTask</servlet-class>
-   </servlet>
-   <servlet>
-	  <servlet-name>removeTask</servlet-name>
-	  <servlet-class>removeTask</servlet-class>
-   </servlet>
-   <servlet>
-	  <servlet-name>addTask</servlet-name>
-	  <servlet-class>addTask</servlet-class>
-   </servlet>
-   <servlet>
 	  <servlet-name>processTask</servlet-name>
 	  <servlet-class>processTask</servlet-class>
    </servlet>
 
    <!-- Note: All <servlet> elements MUST be grouped together and
          placed IN FRONT of the <servlet-mapping> elements -->
-   <servlet-mapping>
-	  <servlet-name>markTask</servlet-name>
-	  <url-pattern>/markTask</url-pattern>
-   </servlet-mapping>
-   <servlet-mapping>
-	  <servlet-name>removeTask</servlet-name>
-	  <url-pattern>/removeTask</url-pattern>
-   </servlet-mapping>
-   <servlet-mapping>
-	  <servlet-name>addTask</servlet-name>
-	  <url-pattern>/addTask</url-pattern>
-   </servlet-mapping>
+
    <servlet-mapping>
 	  <servlet-name>processTask</servlet-name>
 	  <url-pattern>/processTask</url-pattern>
